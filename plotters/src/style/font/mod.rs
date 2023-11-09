@@ -6,15 +6,9 @@
 ///
 /// Thus we need different mechanism for the font implementation
 
-#[cfg(all(
-    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
-    feature = "ttf"
-))]
+#[cfg(all(target_arch = "wasm32", feature = "ttf"))]
 mod ttf;
-#[cfg(all(
-    not(all(target_arch = "wasm32", not(target_os = "wasi"))),
-    feature = "ttf"
-))]
+#[cfg(all(target_arch = "wasm32", feature = "ttf"))]
 use ttf::FontDataInternal;
 
 #[cfg(all(
