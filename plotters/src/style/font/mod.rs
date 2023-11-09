@@ -44,9 +44,9 @@ mod naive;
 ))]
 use naive::FontDataInternal;
 
-#[cfg(all(target_arch = "wasm32", not(target_os = "wasi")))]
+#[cfg(all(target_arch = "wasm32", not(target_os = "wasi"), not(feature = "ttf")))]
 mod web;
-#[cfg(all(target_arch = "wasm32", not(target_os = "wasi")))]
+#[cfg(all(target_arch = "wasm32", not(target_os = "wasi"), not(feature = "ttf")))]
 use web::FontDataInternal;
 
 mod font_desc;
